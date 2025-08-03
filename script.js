@@ -8,17 +8,17 @@ let currentSongIndex = 0;
 
 async function select() {
     document.querySelector(".first").addEventListener("click", async () => {
-        ur = "https://github.com/zalte45/my-spotify/tree/main/songs";
+        ur = "./songs/";
         await updateSongs();
     });
 
     document.querySelector(".second").addEventListener("click", async () => {
-        ur = "https://github.com/zalte45/my-spotify/tree/main/songs1";
+        ur = "./songs1/";
         await updateSongs();
     });
 
     document.querySelector(".third").addEventListener("click", async () => {
-        ur = "https://github.com/zalte45/my-spotify/tree/main/songs2";
+        ur = "./songs2/";
         await updateSongs();
     });
 }
@@ -170,4 +170,5 @@ window.addEventListener("DOMContentLoaded", () => {
     select();
     main();
 });
+
 
