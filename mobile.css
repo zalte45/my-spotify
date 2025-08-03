@@ -1,0 +1,193 @@
+@media (max-width: 600px) {
+    .right {
+        z-index: 1;
+        width: 100vw;
+        margin-left: 0;
+        min-height: auto;
+
+    }
+
+    .left {
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        max-height: 99vh;
+        width: 80vw;
+        padding: 5px;
+        background-color: #111;
+        transition: left 0.3s ease;
+        z-index: 1001;
+        overflow-y: auto;
+    }
+
+    .left.open {
+        left: 0;
+
+    }
+
+   
+
+    .menu {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 25px;
+        height: 25px;
+        background-color: #222;
+        color: white;
+        font-size: 22px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s ease;
+        z-index: 1100;
+    }
+
+    .menu img {
+        color: white;
+        background-color: red;
+    }
+
+    .left.open+.menu,
+    .left.open .menu {
+        left: 70vw;
+    }
+
+    .left.open+.menu+.right {
+        margin-left: 80vw;
+        width: 20vw;
+    }
+
+
+    .logo img {
+        width: 60px;
+    }
+
+    .home ul li {
+        font-size: 10px;
+        display: flex;
+        gap: 7px;
+        width: 12px;
+        list-style: none;
+        padding-top: 7px;
+        font-weight: bold;
+    }
+
+    .Search:hover {
+        transform: all ease 0.3s;
+        width: 80%;
+    }
+
+    .footer a {
+        font-size: 8px;
+        color: gray;
+        display: grid;
+        gap: 5px;
+        max-width: 90vw;
+    }
+
+    .btn-bottom-left {
+        border: 1px solid #7a7a7a;
+        display: flex;
+        align-items: center;
+        gap: 1px;
+        background-origin: 2.5vh;
+        margin-top: 5px;
+        font-size: 6px;
+        padding: 2.5px 5px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        width: fit-content;
+    }
+
+    .btn-bottom-left img {
+        width: 10px;
+    }
+
+    .box1 :nth-child(1) {
+        font-size: 10px;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+    }
+
+    .box1 {
+        justify-content: space-between;
+        align-items: center;
+        justify-items: center;
+        padding-right: 11px;
+        padding-top: 7px;
+        padding-left: 10px;
+    }
+
+    .box1 :nth-child(2) img {
+        display: flex;
+        width: 9px;
+    }
+
+    .songlist {
+        overflow-y: scroll;
+        height: 300px;
+        margin-top: 5px;
+    }
+
+    .songlist ul {
+        padding: 1.5px 8px;
+    }
+
+    .songlist ul li:hover {
+        background-color: #342e2e;
+    }
+
+    .songlist ul li {
+        font-size: small;
+        width: 80%;
+        list-style-type: decimal;
+        display: flex;
+        gap: 7px;
+        cursor: pointer;
+        padding: 6px 6px;
+        align-items: center;
+        border: 1px solid white;
+        border-radius: 2.5px;
+        margin-top: 6px;
+        justify-content: space-between;
+    }
+
+    .library {
+        min-height: 70vh;
+    }
+
+    .card {
+        width: 40vw;
+        height: 30vh;
+        overflow: hidden;
+    }
+
+    .card:hover>.play {
+        top: 90px;
+        right: 0;
+        opacity: 1;
+    }
+
+    .volumebar img {
+        margin-left: 20vw;
+    }
+
+    .soptifyplaylist {
+        max-height: 100vh;
+    }
+
+    .cardcontainer {
+        height: 80vh;
+        max-height: none;
+    }
+
+    .abovebar {
+        padding: 0px 10px 10px 12px;
+    }
+}
