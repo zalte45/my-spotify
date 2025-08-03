@@ -1,42 +1,75 @@
 console.log("These are the songs we need to insert");
 
+// Base path for your GitHub Pages site — change username/repo if needed
+const BASE_URL = "https://zalte45.github.io/my-spotify/";
+
 let currentsong = new Audio();
-let ur = "./songs/";
 let play = null; // play button
 let songs = [];
 let currentSongIndex = 0;
+let ur = "songs/";
 
+// Hardcoded song lists for each folder
+const songsData = {
+    "songs/": [
+        "Barse More Naina.mp3",
+        "Be Free.mp3",
+        "Doorun Doorun.mp3",
+        "Emptiness.mp3",
+        "Finding Her.mp3",
+        "Ishkacha Naad.mp3",
+        "Jaani.mp3",
+        "NaQabil.mp3",
+        "O Sajna.mp3",
+        "Vaaroon.mp3"
+    ],
+    "songs1/": [
+        "Bairiyaa.mp3",
+        "Bardali.mp3",
+        "CHOR BAZARI.mp3",
+        "Hosana.mp3",
+        "Humsafar.mp3",
+        "Jeene Laga Hoon.mp3",
+        "Khali Pili.mp3",
+        "Main Rang Sharbaton Ka.mp3",
+        "Sanjhawaan.mp3",
+        "TUJHSE DOOR JO HOTA HOON.mp3",
+        "gulabi-sadi.mp3"
+    ],
+    "songs2/": [
+        "Jag Ghoomeya.mp3",
+        "Love You Na Yaar.mp3",
+        "Main Badhiya Tu Bhi Badhiya.mp3",
+        "Maine Jana Mujh Mein Tu Hai.mp3",
+        "Majja Mi Life.mp3",
+        "Mera Yaar.mp3",
+        "Mi Naadkhula.mp3",
+        "Piya O Re Piya.mp3",
+        "Sahiba.mp3"
+    ]
+};
+
+// Button clicks to select folder
 async function select() {
     document.querySelector(".first").addEventListener("click", async () => {
-        ur = "./songs/";
+        ur = "songs/";
         await updateSongs();
     });
 
     document.querySelector(".second").addEventListener("click", async () => {
-        ur = "./songs1/";
+        ur = "songs1/";
         await updateSongs();
     });
 
     document.querySelector(".third").addEventListener("click", async () => {
-        ur = "./songs2/";
+        ur = "songs2/";
         await updateSongs();
     });
 }
 
+// Use hardcoded arrays instead of fetching directory
 async function getsongs() {
-    let a = await fetch(ur);
-    let res = await a.text();
-    let div = document.createElement("div");
-    div.innerHTML = res;
-    let as = div.getElementsByTagName("a");
-    let songs = [];
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(ur)[1]);
-        }
-    }
-    return songs;
+    return songsData[ur];
 }
 
 function renderSongs(songsList) {
@@ -48,7 +81,7 @@ function renderSongs(songsList) {
             <li>
                 <img class="invert" src="img/left-upper-img/music.svg" alt="">
                 <div class="info">
-                    <div>${song.replaceAll("%20", " ")}</div>
+                    <div>${song}</div>
                 </div>
                 <div class="playnow">
                     <span>Play Now</span>
@@ -75,14 +108,14 @@ async function updateSongs() {
 }
 
 const playmusic = (track, pause = false) => {
-    currentsong.src = ur + track;
+    currentsong.src = BASE_URL + ur + encodeURIComponent(track);
 
     if (!pause) {
         currentsong.play();
         play.src = "img/right-img/pause.svg";
     }
 
-    document.querySelector(".songinfo").innerHTML = decodeURI(track.replace(".mp3", ""));
+    document.querySelector(".songinfo").innerHTML = track.replace(".mp3", "");
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 };
 
@@ -170,6 +203,3 @@ window.addEventListener("DOMContentLoaded", () => {
     select();
     main();
 });
-
-
-
