@@ -1,7 +1,7 @@
 console.log("These are the songs we need to insert");
 
 let currentsong = new Audio();
-let ur = "http://127.0.0.1:3000/songs/";
+let ur = "./songs/";
 let play = null; // play button
 let songs = [];
 let currentSongIndex = 0;
@@ -170,5 +170,6 @@ window.addEventListener("DOMContentLoaded", () => {
     select();
     main();
 });
+
 
 
